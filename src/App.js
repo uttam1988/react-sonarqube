@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+const y = 9;
 const x = () => {
-  console.log("ad" + x);
+  console.log(y);
 };
 
 x();
