@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with Create React App and for Code Coverage
+SonarQube Initialized.
 
 ## Available Scripts
 
@@ -14,31 +15,49 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For Test Coverage use the below command and add it in sonar-project.properties
+After excuting a test coverage folder will be auto generated.
 
-### `npm run build`
+### `npm test -- --coverage`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Installing Sonarqube and Sonar-scanner in Mac](http://www.managerjs.com/blog/2015/11/install-sonar-locally-on-osx-and-analyze-a-javascript-project/)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+NOTE: A correction from above installation process, instead of `brew install sona-runner` install `brew install sonar-scanner`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+After installing Sonarqube and sonar-scanner
+Go to sonar installation path which you can get from `brew info sonar`
+start sonar server by `sonar start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Setting Sonar Scanner
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a file `sonar-project.properties` in root folder and add below settings in it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# required metdata
 
-## Learn More
+sonar.projectKey=<Any Key Name>
+sonar.projectVersion=1.0.0
+sonar.sourceEncoding=UTF-8
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# path to srouce directories
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+sonar.sources=<Source Code Folder Name>
+sonar.tests=coverage/coverage-final.json
+
+# excludes
+
+sonar.javascript.exclusion=node-modules/_,coverage/lcov-report/_
+sonar.javascript.lcov.reportPaths=sonar-reports/lcov.info
+
+# Language
+
+#sonar.language=js
+`
+
+At the end run sonar-scanner -X from terminal . Make sure your in root folder.
+
+Thanks Happy Coding.
+Uttam
