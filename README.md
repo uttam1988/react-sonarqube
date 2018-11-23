@@ -20,6 +20,8 @@ After excuting a test coverage folder will be auto generated.
 
 ### `npm test -- --coverage`
 
+Setup Sonarqube and Sonar-scanner for nodejs application using Homebrew. Please follow below link.
+
 [Installing Sonarqube and Sonar-scanner in Mac](http://www.managerjs.com/blog/2015/11/install-sonar-locally-on-osx-and-analyze-a-javascript-project/)
 
 NOTE: A correction from above installation process, instead of `brew install sona-runner` install `brew install sonar-scanner`
@@ -34,7 +36,7 @@ Setting Sonar Scanner
 
 Create a file `sonar-project.properties` in root folder and add below settings in it.
 
-`
+```
 
 # required metdata
 
@@ -55,7 +57,7 @@ sonar.javascript.lcov.reportPaths=sonar-reports/lcov.info
 # Language
 
 #sonar.language=js
-`
+```
 
 At the end run sonar-scanner -X from terminal . Make sure your in root folder.
 
